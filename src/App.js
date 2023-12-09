@@ -76,6 +76,7 @@ export function App() {
       <Navbarhtml/>
       <Form/>
       <h2>khong chao</h2>
+      <p>can't  win</p>
       
     </div>
   );
