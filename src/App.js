@@ -1,12 +1,10 @@
 import './App.css'
-import FormValidator from './03-form-validator/FormValidator'
-import DarkMode from './02-dark-mode/DarkMode'
+import DadJokes from './04-dog-pics/DogPics'
 
 function App () {
   return (
     <div className='App'>
-      <FormValidator />
-      <DarkMode/>
+      <DadJokes />
     </div>
   )
 }

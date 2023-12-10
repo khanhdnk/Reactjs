@@ -8,7 +8,6 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.5s ease;
 }
 
 .dark-mode {
@@ -50,4 +49,12 @@ input {
 
 input[type=submit] {
   width: 100px;
+}
+
+.dog-pics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
 }
