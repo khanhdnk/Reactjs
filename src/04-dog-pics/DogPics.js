@@ -17,7 +17,10 @@ export default function DogPics () {
   }, []);
   return (
     <div className='dog-pics'>
-      <img src={`${dogPic}`} />
+      <div className="image">
+        <img src={`${dogPic}`} />
+
+      </div>
       <button onClick={async e => setDogPic(await getDogPic())}>🐶</button>
     </div>
   )
