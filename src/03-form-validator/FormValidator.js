@@ -8,6 +8,15 @@ export default function FormValidator () {
     localStorage.setItem('Selected data', data);
   }
 
+  if ("0"){
+    console.log("it is string 0");
+  }
+
+  if ('0'){
+    console.log("it is character 0");
+    
+  }
+
   useEffect(() => {
     let data = localStorage.getItem('Selected data');
     if (data){
@@ -15,7 +24,6 @@ export default function FormValidator () {
     }
   }, []);
   
-  window.addEventListener('dblclick', alert("double click"));
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
