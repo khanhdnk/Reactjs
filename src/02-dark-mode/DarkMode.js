@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 export default function DarkMode () {
   const [darkMode, setDarkMode] = useState(false);
+  const [moc, setMoc] = useState(0);
   let courses = [
     {
       a: 3,
@@ -24,6 +25,10 @@ export default function DarkMode () {
     
   ];
 
+  let darray = new Array();
+  console.log(courses)
+
+
   function CallbackFunc(prara, index){
     return {
       a: prara.a,
@@ -33,8 +38,26 @@ export default function DarkMode () {
       index: index
     }
   }
-  let newCourses = courses.map(CallbackFunc);
-  console.log(newCourses);
+  // let newCourses = courses.map(CallbackFunc);
+  // console.log(newCourses);
+  let i = 0;
+
+
+
+  function reduceFunc(theMoc, currentIterator, index){
+    i+=2;
+    console.table({
+      'luot chay: ': i,
+      // 'object hien tai: ': currentIterator,
+      'the moc ': theMoc
+      
+    });
+    console.log(currentIterator);
+    return (i);
+  }
+
+  let totalA = courses.reduce(reduceFunc,moc)
+  console.log(totalA)
 
   return (
     <div className={`page ${darkMode && 'dark-mode'}`}>
