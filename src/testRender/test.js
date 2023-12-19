@@ -1,14 +1,22 @@
 import { useState } from "react";
+import './../App.css'
+
 
 export function TestRenderjs(){
     const [data, setData] = useState('');
     const [employee, setEmployee] = useState('');
     const [name, setName] = useState('');
     const [putId, setPutId] = useState('');
+    const [pid, setPid] = useState('');
+    const [pname, setPname] = useState('');
+    const [put, setPut] = useState('');
+    const [did, setDid] = useState('');
+    const [putDelete, setPutDelete] = useState('');
 
     const getData = async() =>{
-        let finalData = '';
-        const response = await fetch(`http://localhost:3000/api/employees/`,{
+        let finalData = [];
+        const response = await fetch(`http://localhost:3001/api/employees/`,{
+            method: 'GET',
             headers: {
                 'x-api-key': "hello",
                 'Content-Type': 'application/json'
@@ -17,18 +25,17 @@ export function TestRenderjs(){
         const arrayOfData = await response.json();
         console.log(arrayOfData);
         for(let i =0; i < arrayOfData.length; i++){
-            finalData+= <p>ID: {arrayOfData[i].id}, Name: {arrayOfData[i].name}</p>
+            finalData.push(<p>ID: {arrayOfData[i].id}, Name: {arrayOfData[i].name}</p>);
         }
-        finalData = arrayOfData.map(item => (
-            <p key={item.id}>ID: {item.id}, Name: {item.name}</p>
-          ));
-        console.log(arrayOfData[0].name)
+        // finalData = arrayOfData.map(item => (
+        //     <p key={item.id}>ID: {item.id}, Name: {item.name}</p>
+        //   ));
         return finalData;
     }
 
     const getEmployee = async(id,name) =>{
         let finalData;//try
-        const response = await fetch(`http://localhost:3000/api/employees/edit/${id}`,{
+        const response = await fetch(`http://localhost:3001/api/employees/edit/${id}`,{
             method: 'PUT',
             headers: {
                 'x-api-key': "hello",
@@ -40,17 +47,71 @@ export function TestRenderjs(){
             
         });
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+        // if (!response.ok) {
+        //     throw new Error(`HTTP error! Status: ${response.status}`);
+        // }
         const theData = await response.json();
         if (theData.success === true){
-            return <p>success</p>;
+            finalData = <p>success</p>;
+            return finalData;
         }
         else{
             return null;
         }
     }
+
+    const addEmployee = async (id,name)=>{
+        let finalData;//try
+        const response = await fetch(`http://localhost:3001/api/employees/add/`,{
+            method: 'POST',
+            headers: {
+                'x-api-key': "hello",
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: id,
+                name: name
+            })
+            
+        });
+
+        // if (!response.ok) {
+        //     throw new Error(`HTTP error! Status: ${response.status}`);
+        // }
+        const theData = await response.json();
+        if (theData.success === true){
+            finalData = <p>success</p>;
+            return finalData;
+        }
+        else{
+            return null;
+        }
+    }
+
+    const deleteEmployee = async (id)=>{
+        let finalData;//try
+        const response = await fetch(`http://localhost:3001/api/employees/delete/${id}`,{
+            method: 'DELETE',
+            headers: {
+                'x-api-key': "hello",
+                'Content-Type': 'application/json'
+            },
+            
+        });
+
+        // if (!response.ok) {
+        //     throw new Error(`HTTP error! Status: ${response.status}`);
+        // }
+        const theData = await response.json();
+        if (theData.success === true){
+            finalData = <p>success</p>;
+            return finalData;
+        }
+        else{
+            return null;
+        }
+    }
+
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -60,6 +121,8 @@ export function TestRenderjs(){
     
     return(
         <>
+            <section className="main">
+
             <div>
                 <h1>Get full data</h1>
                 {/* <p>{data? data.forEach(displayData): ''}</p> */}
@@ -78,11 +141,34 @@ export function TestRenderjs(){
                     <input value={name} type="text" id="fname" name="fname" onChange={e=> setName(e.target.value)}/><br/>
                     <input type="submit" value="Submit" onClick={async e => setEmployee(await getEmployee(putId, name)) }/>
                     {employee}
+                    <hr/>
+
+                    <h1>Post</h1>
+                    <label htmlFor="pid">Choose the ID:</label>
+                    <input value={pid} type="text" id="pid" name="pid" onChange={e=> setPid(e.target.value)}/><br/>
+
+                    <label htmlFor="pname">Choose the Name:</label>
+                    <input value={pname} type="text" id="pname" name="pname" onChange={e=> setPname(e.target.value)}/><br/>
+                    <input type="submit" value="Submit" onClick={async e => setPut(await addEmployee(pid, pname)) }/>
+                    {put}
+
+
+                    <hr/>
+
+
+
+                    <h1>Delete</h1>
+                    <label htmlFor="did">Choose the ID:</label>
+                    <input value={did} type="text" id="did" name="did" onChange={e=> setDid(e.target.value)}/><br/>
+                    <input type="submit" value="Submit" onClick={async e => setPutDelete(await deleteEmployee(did)) }/>
+                    {putDelete}
+
                 </form>
             </div>
             {/* <button onClick={}>Put method</button>
             <button onClick={}>Post method</button>
             <button onClick={}>Delete method</button> */}
+            </section>
         
         </>
     );
