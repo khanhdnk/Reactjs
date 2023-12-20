@@ -11,10 +11,13 @@
 body{
   /* background: #3587ec; */
   background: linear-gradient(rgb(244, 103, 103), rgb(238, 238, 93));
+  min-height: 100vh;
 }
 .container{
   display: flex;
 }
+
+.App
 nav{
   position: relative;
   top: 0;
@@ -74,6 +77,7 @@ a:hover{
 
 .App{
   display: flex;
+  min-height: 100vh;
 }
 
 /* Main Section */
@@ -224,6 +228,7 @@ button, .input_button{
   /* position: relative; */
   /* height: 100px; */
   transition: 1s;
+  padding-left: 20px;
 
 }
 

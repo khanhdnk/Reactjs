@@ -180,24 +180,23 @@ export function CrudInputField(){
     
     return(
         <>
-            <section className="main">
 
-            <div className="getApi_section">
-                <h1>Get full data</h1>
-                {/* <p>{data? data.forEach(displayData): ''}</p> */}
-                <div className="expand">
-
-                    <div >
-                        {listOfEmployees && listOfEmployees.map(employee=><p>ID: {employee.id}, Name: {employee.name}</p>)}
-                    </div>
-                </div>
-
-                <button onClick={handleSubmitGetAllEmployee}>Get method</button>
-
-            </div>
             <hr/>
             <div>
                 <form onSubmit={handleSubmit}>
+                    <div className="getApi_section">
+                        <h1>Get full data</h1>
+                        {/* <p>{data? data.forEach(displayData): ''}</p> */}
+                        <div className="expand">
+
+                            <div >
+                                {listOfEmployees && listOfEmployees.map(employee=><p>ID: {employee.id}, Name: {employee.name}</p>)}
+                            </div>
+                        </div>
+
+                        <button onClick={handleSubmitGetAllEmployee}>Get method</button>
+
+                    </div>
                     <div className="api_section">
                         <h1>Get the employee by ID</h1>
                         <label htmlFor="fid">Choose the ID:</label>
@@ -249,7 +248,6 @@ export function CrudInputField(){
             {/* <button onClick={}>Put method</button>
             <button onClick={}>Post method</button>
             <button onClick={}>Delete method</button> */}
-            </section>
         
         </>
     );
