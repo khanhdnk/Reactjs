@@ -1,0 +1,25 @@
+h1{
+    padding: 20px;
+    background: green;
+    color: blue;
+
+}
+
+
+
+
+.expand{
+    display: grid;
+    grid-template-rows: 0fr;
+    width: 300px;
+    height: 300px;
+    transition: grid-template-rows 1s ease;
+}
+
+.expand > div{
+    overflow: hidden;
+}
+
+.expand:hover{
+    grid-template-rows: 1fr;
+}

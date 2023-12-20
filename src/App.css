@@ -9,7 +9,8 @@
   font-family: "Poppins", sans-serif;
 }
 body{
-  background: #dfe9f5;
+  /* background: #3587ec; */
+  background: linear-gradient(rgb(244, 103, 103), rgb(238, 238, 93));
 }
 .container{
   display: flex;
@@ -18,7 +19,7 @@ nav{
   position: relative;
   top: 0;
   bottom: 0;
-  height: 100vh;
+  height: 100%;
   left: 0;
   background: #fff;
   width: 280px;
@@ -58,9 +59,10 @@ nav .fas{
   text-align: center;
 }
 .nav-item{
-  position: relative;
+  /* position: relative; */
   top: 12px;
   margin-left: 10px;
+  text-align: center;
 }
 a:hover{
   background: #eee;
@@ -70,7 +72,9 @@ a:hover{
   bottom: 0;
 }
 
-
+.App{
+  display: flex;
+}
 
 /* Main Section */
 .main{
@@ -196,4 +200,49 @@ a:hover{
 input{
   justify-self: start;
   padding: 10px 0;
+  border-radius: 2px;
+  /* overflow: hidden; */
+  /* margin: 10px; */
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+button, .input_button{
+  border-radius: 7px;
+  overflow: hidden;
+  /* padding: 20px; */
+  transition: 0.3s ease ;
+  border: #000 solid 2px;
+  text-align: center;
+}
+
+.api_section{
+  margin: 10px 0;
+}
+
+.getApi_section{
+  /* position: relative; */
+  /* height: 100px; */
+  transition: 1s;
+
+}
+
+button:hover, .input_button:hover{
+  background: green;
+}
+
+.expand{
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 1s ease;
+  grid-template-rows: 1fr;
+
+}
+
+.expand > div{
+  overflow: hidden;
+}
+
+.expand:hover{
+  grid-template-rows: 1fr;
 }

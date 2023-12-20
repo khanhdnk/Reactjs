@@ -21,6 +21,7 @@ export function Navbarhtml() {
           <img src="https://icon-library.com/images/icon-api/icon-api-24.jpg" alt=""/>
           <span className="nav-item">DashBoard</span>
         </a></li>
+        
         <li><a href="#">
           <i className="fas fa-home"></i>
           <span className="nav-item">Home</span>
@@ -55,9 +56,7 @@ export function Navbarhtml() {
         </a></li>
       </ul>
     </nav>
-    <section className="main">
-      <TestRenderjs/>
-    </section>
+
   </div>
     </>
   );
