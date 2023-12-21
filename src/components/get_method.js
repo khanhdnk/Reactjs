@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import './../App.css'
 
 
-function GetMethod(){
+function GetEmployeesMethod(){
     const [listOfEmployees, setListOfEmployees] = useState('');
     async function getListEmployee(){
         try{
@@ -31,7 +31,7 @@ function GetMethod(){
     }
 
     return(
-        <div className="getApi_section">
+        <div className="api_section">
             <h1>Get full data</h1>
             {/* <p>{data? data.forEach(displayData): ''}</p> */}
             <div className="expand">
@@ -47,4 +47,4 @@ function GetMethod(){
     );
 }
 
-export default GetMethod;
+export default GetEmployeesMethod;

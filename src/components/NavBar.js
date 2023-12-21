@@ -6,7 +6,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import { TestHTML } from '../App';
 import { Button } from 'react-bootstrap';
-import { TestRenderjs } from './../testRender/test'
 
 import './../App.css'
 
@@ -21,39 +20,42 @@ export function Navbarhtml() {
           <img src="https://icon-library.com/images/icon-api/icon-api-24.jpg" alt=""/>
           <span className="nav-item">DashBoard</span>
         </a></li>
-        
+        <Link to={"/"}>
         <li><a href="#">
-          <i className="fas fa-home"></i>
-          <span className="nav-item">Home</span>
+          {/* <img className="fas fa-home" src="./../"></img> */}
+          <span className="nav-item">Get eployees</span>
         </a></li>
-        <li><a href="">
-          <i className="fas fa-user"></i>
-          <span className="nav-item">Profile</span>
-        </a></li>
-        <li><a href="">
-          <i className="fas fa-wallet"></i>
-          <span className="nav-item">Wallet</span>
-        </a></li>
-        <li><a href="">
-          <i className="fas fa-chart-bar"></i>
-          <span className="nav-item">Analytics</span>
-        </a></li>
-        <li><a href="">
-          <i className="fas fa-tasks"></i>
-          <span className="nav-item">Tasks</span>
-        </a></li>
-        <li><a href="">
-          <i className="fas fa-cog"></i>
-          <span className="nav-item">Settings</span>
-        </a></li>
-        <li><a href="">
-          <i className="fas fa-question-circle"></i>
-          <span className="nav-item">Help</span>
-        </a></li>
-        <li><a href="" className="logout">
-          <i className="fas fa-sign-out-alt"></i>
-          <span className="nav-item">Log out</span>
-        </a></li>
+        </Link>
+        <Link to={"/getAnEmployee"}>
+          <li><a href="">
+            <i className="fas fa-user"></i>
+            <span className="nav-item">Get an eployee</span>
+          </a></li>
+
+        </Link>
+
+        <Link to={"/update"}>
+
+          <li><a href="">
+            <i className="fas fa-wallet"></i>
+            <span className="nav-item">Update an employee</span>
+          </a></li>
+        </Link>
+
+        <Link to={"/post"}>
+          <li><a href="">
+            <i className="fas fa-chart-bar"></i>
+            <span className="nav-item">Add an employee</span>
+          </a></li>
+        </Link>
+
+        <Link to={"/delete"}>
+
+          <li><a href="">
+            <i className="fas fa-tasks"></i>
+            <span className="nav-item">Delete an employee</span>
+          </a></li>
+        </Link>
       </ul>
     </nav>
 
