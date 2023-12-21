@@ -15,6 +15,7 @@ input, label {
 input {
   padding: 8px;
   width: 300px;
+  border: 2px solid black;
 }
 
 input[type=submit] {

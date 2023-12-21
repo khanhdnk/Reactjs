@@ -204,7 +204,7 @@ a:hover{
 input{
   justify-self: start;
   padding: 10px 0;
-  border-radius: 2px;
+  border-radius: 10px;
   /* overflow: hidden; */
   /* margin: 10px; */
   padding-left: 10px;
@@ -241,8 +241,7 @@ button:hover, .input_button:hover{
 .expand{
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 1s ease;
-  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.75s ease;
 
 }
 
@@ -250,6 +249,17 @@ button:hover, .input_button:hover{
   overflow: hidden;
 }
 
-.expand:hover{
+.add1fr{
   grid-template-rows: 1fr;
+}
+
+table{
+  border: 2px solid black;
+}
+
+table td, th{
+  border: 2px solid black;
+  padding: 5px;
+
+
 }

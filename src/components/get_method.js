@@ -4,6 +4,7 @@ import './../App.css'
 
 function GetEmployeesMethod(){
     const [listOfEmployees, setListOfEmployees] = useState('');
+    const [expand, setExpand] = useState(false);
     async function getListEmployee(){
         try{
             const response = await fetch(`http://localhost:3001/api/employees/`,{
@@ -24,6 +25,7 @@ function GetEmployeesMethod(){
 
     async function handleSubmitGetAllEmployee (){
         setListOfEmployees(await getListEmployee());
+        setExpand(true);
     }
 
     const handleSubmit = e => {
@@ -34,13 +36,19 @@ function GetEmployeesMethod(){
         <div className="api_section">
             <h1>Get full data</h1>
             {/* <p>{data? data.forEach(displayData): ''}</p> */}
-            <div className="expand">
+            <div className={ `expand ${expand && 'add1fr'}`}>
 
                 <div >
-                    {listOfEmployees && listOfEmployees.map(employee=><p>ID: {employee.id}, Name: {employee.name}</p>)}
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                        </tr>
+                        {listOfEmployees && listOfEmployees.map(employee=><tr><td>{employee.id}</td><td>{employee.name}</td></tr>)}
+                    </table>
                 </div>
             </div>
-
+            <br/>
             <button onClick={handleSubmitGetAllEmployee}>Get method</button>
 
         </div>
