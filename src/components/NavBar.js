@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import { TestHTML } from '../App';
 import { Button } from 'react-bootstrap';
-
+import downloadimg from './../image/downloading.png'
 import './../App.css'
 
 
@@ -22,8 +22,8 @@ export function Navbarhtml() {
         </a></li>
         <Link to={"/"}>
         <li><a href="#">
-          {/* <img className="fas fa-home" src="./../"></img> */}
-          <span className="nav-item">Get eployees</span>
+          
+          <span className="nav-item"><img className="" src={downloadimg} width="30"></img>Get eployees</span>
         </a></li>
         </Link>
         <Link to={"/getAnEmployee"}>
