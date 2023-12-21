@@ -1,34 +1,9 @@
 import { useEffect, useState } from "react";
 import './../App.css'
-
-function DeleteEmployeeMethod(){
+import deleteEmployee from "../crud_operations/deleteEmployee";
+function DeleteEmployeeCompo(){
     const [deleteEmployeeId, setDeleteEmployeeId] = useState('');
     const [deleteResult, setDeleteResult] = useState('');
-
-    async function deleteEmployee (id){
-        try{
-            const response = await fetch(`http://localhost:3001/api/employees/delete/${id}`,{
-                method: 'DELETE',
-                headers: {
-                    'x-api-key': "hello",
-                    'Content-Type': 'application/json'
-                }
-                
-            });
-    
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            const {success: result} = await response.json();
-            if (!result){
-                throw new Error("Can't retrieve data")
-            }
-            return "Successful";
-        }catch(error){
-            console.error('Error while processing:', error.message);
-            throw error;
-        }
-    }
 
     async function handleSubmitDeleteEmployee (){
         setDeleteResult(await deleteEmployee(parseInt(deleteEmployeeId)))
@@ -55,4 +30,4 @@ function DeleteEmployeeMethod(){
     );
 }
 
-export default DeleteEmployeeMethod;
+export default DeleteEmployeeCompo;

@@ -1,40 +1,13 @@
 import { useEffect, useState } from "react";
 import './../App.css'
+import addEmployee from "../crud_operations/addEmployee";
 
-function PostEmployeeMethod(){
+function PostEmployeeCompo(){
     const [addEmployeeId, setaddEmployeeId] = useState('');
     const [addEmployeeName, setaddEmployeeName] = useState('');
     const [postResult, setPostResult] = useState('');
 
-    async function addEmployee(id,name){
-        try{
-            const response = await fetch(`http://localhost:3001/api/employees/add/`,{
-                method: 'POST',
-                headers: {
-                    'x-api-key': "hello",
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    id: parseInt(id),
-                    name: name
-                })
-                
-            });
     
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            const {success: result} = await response.json();
-            if (!result){
-                throw new Error("Can't retrieve data")
-            }
-            return "Successful";
-            
-        }catch(error){
-            console.error('Error while processing:', error.message);
-            throw error;
-        }
-    }
 
     async function handleSubmitAddEmployee (){
         setPostResult(await addEmployee(addEmployeeId, addEmployeeName))
@@ -64,4 +37,4 @@ function PostEmployeeMethod(){
     );
 }
 
-export default PostEmployeeMethod;
+export default PostEmployeeCompo;

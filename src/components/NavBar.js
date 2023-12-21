@@ -8,6 +8,7 @@ import { TestHTML } from '../App';
 import { Button } from 'react-bootstrap';
 import downloadimg from './../image/downloading.png'
 import './../App.css'
+import apiIcon from './../image/api.png'
 
 
 export function Navbarhtml() {
@@ -17,7 +18,7 @@ export function Navbarhtml() {
     <nav>
       <ul>
         <li><a href="#" className="logo">
-          <img src="https://icon-library.com/images/icon-api/icon-api-24.jpg" alt=""/>
+          <img src={apiIcon} alt=""/>
           <span className="nav-item">DashBoard</span>
         </a></li>
         <Link to={"/"}>

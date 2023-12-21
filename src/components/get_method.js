@@ -1,27 +1,11 @@
 import { useEffect, useState } from "react";
 import './../App.css'
+import getListEmployee from "../crud_operations/getListEmployee";
 
 
-function GetEmployeesMethod(){
+function GetEmployeesCompo(){
     const [listOfEmployees, setListOfEmployees] = useState('');
     const [expand, setExpand] = useState(false);
-    async function getListEmployee(){
-        try{
-            const response = await fetch(`http://localhost:3001/api/employees/`,{
-                method: 'GET',
-                headers: {
-                    'x-api-key': "hello",
-                    'Content-Type': 'application/json'
-                }
-            });
-            const { data: employeeList } = await response.json();
-            return employeeList;
-        }
-        catch (error) {
-            console.error('Error fetching data:', error.message);
-            throw error;
-        }
-    }
 
     async function handleSubmitGetAllEmployee (){
         setListOfEmployees(await getListEmployee());
@@ -55,4 +39,4 @@ function GetEmployeesMethod(){
     );
 }
 
-export default GetEmployeesMethod;
+export default GetEmployeesCompo;
