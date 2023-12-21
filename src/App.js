@@ -1,12 +1,11 @@
 import './App.css'
-import { CrudInputField } from './testRender/test'
 import GetEployeesCompo from './components/get_method'
 import GetAnEmployeeCompo from './components/get_an_employee'
 import UpdateEmployeeCompo from './components/put_method'
 import PostEmployeeCompo from './components/post_method'
 import DeleteEmployeeCompo from './components/delete_method'
 import Navbarhtml from './components/NavBar'
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
 
 
 function App () {
